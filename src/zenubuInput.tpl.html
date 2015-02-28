@@ -1,0 +1,37 @@
+<ng-form name="innerForm">
+    <div ng-class="{'has-error' : hasError()}" class="form-group has-feedback">
+        <div ng-class="{'input-group' : inputGroup}">
+            <input type="{{validation.type}}" class="form-control" name="input" ng-class="{'input-lg': large}"
+                   ng-if="!sameAs"
+                   ng-trim="false" ng-model="model[field]"
+                   ng-maxlength="{{validation.maxLength}}" ng-minlength="{{validation.minLength}}"
+                   ng-change="change"
+                   validator-regex="{{validation.regex.pattern}}"
+                   max="{{validation.max}}" min="{{validation.min}}" ng-required="{{validation.required}}"
+                   placeholder="{{ placeholder |translate }}">
+            <input type="{{validation.type}}" class="form-control" name="input"
+                   ng-if="!!sameAs"
+                   ng-change="change"
+                   ng-trim="false" ng-model="model[field]"
+                   password-verify="model[sameAs]"
+                   ng-maxlength="{{validation.maxLength}}" ng-minlength="{{validation.minLength}}"
+                   max="{{validation.max}}" min="{{validation.min}}" ng-required="validation.required"
+                   placeholder="{{ placeholder |translate }}">
+            <span class="fa fa-fw fa-asterisk single-input-feedback" ng-class="{'text-danger' : hasError()}"
+                  ng-if="validation.required" focus-input></span>
+        </div>
+        <p ng-if="hasError()" class="help-block">
+            <label class="control-label">
+                <span ng-show="innerForm.input.$error.validatorRegex">{{ validation.regex.error | translate }}</br></span>
+                <span ng-show="innerForm.input.$error.email">{{ 'EMAIL_ERROR' | translate }}</br></span>
+                <span ng-show="innerForm.input.$error.number">{{ 'NUMBER_ERROR' | translate }}</br></span>
+                <span ng-show="innerForm.input.$error.required">{{ 'REQUIRED_ERROR' | translate }}</br></span>
+                <span ng-show="innerForm.input.$error.maxlength">{{ 'MAXLENGTH_ERROR' | translate:{length:validation.maxLength} }}</br></span>
+                <span ng-show="innerForm.input.$error.minlength">{{ 'MINLENGTH_ERROR' | translate:{length:validation.minLength} }}</br></span>
+                <span ng-show="innerForm.input.$error.max">{{ 'MAX_ERROR' | translate:{length:validation.max} }}</br></span>
+                <span ng-show="innerForm.input.$error.min">{{ 'MIN_ERROR' | translate:{length:validation.min} }}</br></span>
+                <span ng-show="innerForm.input.$error.passwordVerify">{{ 'PASSWORD_NO_MATCH' | translate }}</br></span>
+            </label>
+        </p>
+    </div>
+</ng-form>

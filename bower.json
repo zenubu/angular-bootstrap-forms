@@ -1,0 +1,34 @@
+{
+  "name": "angular-bootstrap-forms",
+  "version": "0.1.0",
+  "homepage": "https://github.com/zenubu/angular-bootstrap-forms",
+  "authors": [
+    "Zenubu"
+  ],
+  "description": "Beautiful validated input forms for bootstrap",
+  "main": [
+    "zenubu.input.css",
+    "zenubu.input.js"
+  ],
+  "keywords": [
+    "angular",
+    "angular-strap",
+    "bootstrap",
+    "input",
+    "forms",
+    "validation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "gulpfile.js",
+    "package.json",
+    "wercker.yml"
+  ],
+  "dependencies": {
+    "angular-ui-select": "~0.8.3",
+    "lodash": "~3"
+  }
+}

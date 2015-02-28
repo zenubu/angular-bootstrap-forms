@@ -1,0 +1,44 @@
+<div>
+    <div ng-switch="validation.type" ng-class="{'has-error' : hasError()}" class="form-group has-feedback">
+
+        <div ng-switch-when="array">
+            <ui-select ng-model="model[field]"
+                       theme="bootstrap" ng-required="{{validation.required}}">
+                <ui-select-match placeholder="{{ placeholder |translate }}">
+                    {{ $select.selected}}
+                </ui-select-match>
+                <ui-select-choices repeat="item in valueObject | filter: $select.search">
+                    <div ng-bind-html="item | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+
+        <div ng-switch-when="translatableArray">
+            <ui-select ng-model="model[field]"
+                       theme="bootstrap" ng-required="{{validation.required}}">
+                <ui-select-match placeholder="{{ placeholder |translate }}">
+                    {{ translatablePrefix + $select.selected.code | translate}}
+                </ui-select-match>
+                <ui-select-choices repeat="item.code as item in valueObject | filter: $select.search">
+                    <div ng-bind-html=" item.name | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+
+        <span class="select-feedback" ng-if="validation.required" focus-select ng-class="{'text-danger' : hasError()}">
+            <i class="fa fa-fw fa-sort"></i>
+            <i class="fa fa-fw fa-asterisk single-input-feedback"></i>
+        </span>
+
+        <span class="fa fa-fw fa-sort single-input-feedback"
+              ng-class="{'text-danger' : hasError()}"
+              ng-if="!validation.required"
+              focus-select></span>
+
+        <div ng-if="hasError()" class="help-block">
+            <label class="control-label">
+                <span>{{ 'REQUIRED_ERROR' | translate }}</span>
+            </label>
+        </div>
+    </div>
+</div>

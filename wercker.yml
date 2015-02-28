@@ -1,0 +1,22 @@
+box: leipert/ubuntu14.04-webessentials@2.0.1
+# Build definition
+build:
+  steps:
+    - npm-install
+    - leipert/yeoman-bower-install
+    - script:
+        name: Test and build angular-bootstrap-forms
+        code: gulp
+    - script:
+        name: Bump version (minor)
+        code: gulp bumpVersion
+    - script:
+        name: Delete unneeded files
+        code: ls -A | grep -v .json | grep -v zenubu.input | xargs rm -rf
+
+deploy:
+  steps:
+    - leipert/git-push:
+         gh_oauth: $GH_TOKEN
+         tag: bower
+         tag_overwrite: true
