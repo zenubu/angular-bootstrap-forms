@@ -14,6 +14,7 @@
                     required: '=',
                     sameAs: '@',
                     placeholder: '@',
+                    label: '@',
                     validationObject: '=?',
                     type: '@',
                     max: '=',
