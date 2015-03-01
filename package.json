@@ -1,6 +1,6 @@
 {
   "name": "angular-bootstrap-forms",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Beautiful validated input forms for bootstrap",
   "dependencies": {},
   "devDependencies": {
