@@ -37,6 +37,8 @@
                         regex: $scope.regex
                     };
 
+                    $scope.hasLabel = !!$scope.label;
+
                     $scope.hasError = function () {
                         return $scope.innerForm.input !== undefined &&
                             (($scope.innerForm.input.$dirty && $scope.innerForm.input.$touched) || $scope.showValidation) && !$scope.innerForm.input.$valid;

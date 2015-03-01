@@ -12,6 +12,7 @@
                     field: '@',
                     required: '=',
                     placeholder: '@',
+                    label: '@',
                     validationObject: '=?',
                     type: '@',
                     translatablePrefix: '@',
@@ -40,6 +41,8 @@
                         });
 
                     }
+
+                    $scope.hasLabel = !!$scope.label;
 
                     $scope.hasError = function () {
                         return $scope.validation.required && ($scope.showValidation) && _.isEmpty($scope.model[$scope.field]);

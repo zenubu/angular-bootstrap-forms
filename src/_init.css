@@ -1,4 +1,4 @@
-.single-input-feedback {
+.single-input-feedback.fa-fw {
     top: 0;
     right: 0;
     width: 34px;
@@ -18,6 +18,12 @@
     text-align: center;
     position: absolute;
     cursor: pointer;
+}
+
+.select-feedback.has-label,
+.single-input-feedback.fa-fw.has-label
+{
+    top:22px;
 }
 
 .select-feedback > .single-input-feedback {

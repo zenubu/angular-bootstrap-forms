@@ -1,6 +1,6 @@
 <ng-form name="innerForm">
     <div ng-class="{'has-error' : hasError()}" class="form-group has-feedback">
-        <label ng-if="label">{{label}}</label>
+        <label ng-if="hasLabel">{{label}}</label>
         <div ng-class="{'input-group' : inputGroup}">
             <input type="{{validation.type}}" class="form-control" name="input" ng-class="{'input-lg': large}"
                    ng-if="!sameAs"
@@ -18,7 +18,7 @@
                    ng-maxlength="{{validation.maxLength}}" ng-minlength="{{validation.minLength}}"
                    max="{{validation.max}}" min="{{validation.min}}" ng-required="validation.required"
                    placeholder="{{ placeholder |translate }}">
-            <span class="fa fa-fw fa-asterisk single-input-feedback" ng-class="{'text-danger' : hasError()}"
+            <span class="fa fa-fw fa-asterisk single-input-feedback" ng-class="{'text-danger' : hasError(), 'has-label': hasLabel}"
                   ng-if="validation.required" focus-input></span>
         </div>
         <p ng-if="hasError()" class="help-block">

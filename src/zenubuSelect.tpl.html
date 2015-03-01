@@ -1,6 +1,6 @@
 <div>
     <div ng-switch="validation.type" ng-class="{'has-error' : hasError()}" class="form-group has-feedback">
-
+        <label ng-if="hasLabel">{{label}}</label>
         <div ng-switch-when="array">
             <ui-select ng-model="model[field]"
                        theme="bootstrap" ng-required="{{validation.required}}">
@@ -25,7 +25,7 @@
             </ui-select>
         </div>
 
-        <span class="select-feedback" ng-if="validation.required" focus-select ng-class="{'text-danger' : hasError()}">
+        <span class="select-feedback" ng-if="validation.required" focus-select ng-class="{'text-danger' : hasError(), 'has-label': hasLabel}">
             <i class="fa fa-fw fa-sort"></i>
             <i class="fa fa-fw fa-asterisk single-input-feedback"></i>
         </span>
